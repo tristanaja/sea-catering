@@ -106,4 +106,4 @@ To create an admin account, you will need to manually update the `role` for an e
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change. 💡
 
 ## License 📄
-[MIT](https://choosealicense.com/licenses/mit/)
+This project is proudly open-source and available under the MIT License. Feel free to explore, use, and contribute! You can find the full license details [here](https://choosealicense.com/licenses/mit/).
