@@ -117,12 +117,20 @@ const UserDashboard = () => {
             {subscriptions.map((sub) => (
               <div key={sub.id} className="bg-[#FEE1CD] p-6 rounded-lg shadow-xl border border-[#FEE1CD]">
                 <h2 className="text-2xl font-bold text-[#E85A4F] mb-4 font-['Montserrat']">Plan: {sub.plan_selection}</h2>
-                <p className="text-[#333333] mb-2 text-lg"><strong>Status:</strong> <span className={`font-semibold ${
+                <p className="text-[#333333] mb-2 text-lg flex items-center space-x-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-[#E85A4F]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <strong>Status:</strong> <span className={`font-semibold ${
                   sub.status === 'active' ? 'text-green-600' :
                   sub.status === 'paused' ? 'text-blue-600' :
                   'text-red-600'
                 }`}>{sub.status.toUpperCase()}</span></p>
-                <p className="text-[#333333] mb-2 text-lg"><strong>Meal Types:</strong> {
+                <p className="text-[#333333] mb-2 text-lg flex items-center space-x-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-[#E85A4F]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.428 15.428a2 2 0 00-2.828-2.828L6.75 19.25l-1.428 1.428a2 2 0 002.828 2.828l10.05-10.05zM12.5 10.5l-1.5-1.5m5-5l-1.5-1.5" />
+                  </svg>
+                  <strong>Meal Types:</strong> {
                   (() => {
                     try {
                       return JSON.parse(sub.meal_types).join(', ');
@@ -132,7 +140,11 @@ const UserDashboard = () => {
                     }
                   })()
                 }</p>
-                <p className="text-[#333333] mb-2 text-lg"><strong>Delivery Days:</strong> {
+                <p className="text-[#333333] mb-2 text-lg flex items-center space-x-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-[#E85A4F]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  <strong>Delivery Days:</strong> {
                   (() => {
                     try {
                       return JSON.parse(sub.delivery_days).join(', ');
@@ -143,14 +155,31 @@ const UserDashboard = () => {
                     
                   })()
                 }</p>
-                <p className="text-[#333333] mb-2 text-lg"><strong>Total Price:</strong> Rp{sub.total_price.toLocaleString('id-ID')},00</p>
-                <p className="text-[#333333] mb-4 text-lg"><strong>Start Date:</strong> {new Date(sub.start_date).toLocaleDateString()}</p>
+                <p className="text-[#333333] mb-2 text-lg flex items-center space-x-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-[#E85A4F]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                  <strong>Total Price:</strong> Rp{sub.total_price.toLocaleString('id-ID')},00</p>
+                <p className="text-[#333333] mb-4 text-lg flex items-center space-x-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-[#E85A4F]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  <strong>Start Date:</strong> {new Date(sub.start_date).toLocaleDateString()}</p>
 
                 {sub.status === 'active' && (
                   <div className="mt-4 pt-4 border-t border-gray-300">
-                    <h3 className="text-xl font-semibold mb-3 text-[#333333]">Pause Subscription</h3>
+                    <h3 className="text-xl font-semibold mb-3 text-[#333333] flex items-center space-x-2">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-[#E85A4F]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M10 9v6m0 0l-3-3m3 3l3-3m-8 9h14a2 2 0 002-2V7a2 2 0 00-2-2H6a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                      </svg>
+                      <span>Pause Subscription</span>
+                    </h3>
                     <div className="flex flex-col space-y-3 mb-4">
-                      <label className="block text-[#333333]">Pause Start Date:
+                      <label className="block text-[#333333] flex items-center space-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-[#E85A4F]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                        <span>Pause Start Date:</span>
                         <input
                           type="date"
                           className="w-full p-2 border border-gray-300 rounded-md mt-1 focus:outline-none focus:ring-2 focus:ring-[#E85A4F] transition-all duration-200"
@@ -158,7 +187,11 @@ const UserDashboard = () => {
                           onChange={(e) => handlePauseChange(sub.id, 'start', e.target.value)}
                         />
                       </label>
-                      <label className="block text-[#333333]">Pause End Date:
+                      <label className="block text-[#333333] flex items-center space-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-[#E85A4F]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                        <span>Pause End Date:</span>
                         <input
                           type="date"
                           className="w-full p-2 border border-gray-300 rounded-md mt-1 focus:outline-none focus:ring-2 focus:ring-[#E85A4F] transition-all duration-200"
@@ -169,15 +202,21 @@ const UserDashboard = () => {
                     </div>
                     <button
                       onClick={() => pauseSubscription(sub.id)}
-                      className="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded-full hover:bg-blue-700 transition-colors duration-300 mb-3 shadow-md transform hover:scale-105"
+                      className="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded-full hover:bg-blue-700 transition-colors duration-300 mb-3 shadow-md transform hover:scale-105 flex items-center justify-center space-x-2"
                     >
-                      Pause Subscription
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M10 9v6m0 0l-3-3m3 3l3-3m-8 9h14a2 2 0 002-2V7a2 2 0 00-2-2H6a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                      </svg>
+                      <span>Pause Subscription</span>
                     </button>
                     <button
                       onClick={() => cancelSubscription(sub.id)}
-                      className="w-full bg-red-500 text-white font-bold py-2 px-4 rounded-full hover:bg-red-700 transition-colors duration-300 shadow-md transform hover:scale-105"
+                      className="w-full bg-red-500 text-white font-bold py-2 px-4 rounded-full hover:bg-red-700 transition-colors duration-300 shadow-md transform hover:scale-105 flex items-center justify-center space-x-2"
                     >
-                      Cancel Subscription
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2A9 9 0 111 12a9 9 0 0118 0z" />
+                      </svg>
+                      <span>Cancel Subscription</span>
                     </button>
                   </div>
                 )}

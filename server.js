@@ -331,6 +331,30 @@ app.post(
   }
 );
 
+app.post("/api/testimonials", authenticateToken, async (req, res) => {
+  const { customerName, reviewMessage, rating } = req.body;
+  const userId = req.user.id; // Get user ID from authenticated token
+
+  try {
+    const sql = `INSERT INTO testimonials (user_id, customer_name, review_message, rating) VALUES (?, ?, ?, ?)`;
+    await db.promise().query(sql, [userId, customerName, reviewMessage, rating]);
+    res.status(201).json({ message: "Testimonial submitted successfully!" });
+  } catch (err) {
+    console.error("Error submitting testimonial:", err);
+    res.status(500).json({ message: "Error submitting testimonial", error: err });
+  }
+});
+
+app.get("/api/testimonials", async (req, res) => {
+  try {
+    const [rows] = await db.promise().query("SELECT id, user_id, customer_name AS customerName, review_message AS reviewMessage, rating FROM testimonials");
+    res.status(200).json(rows);
+  } catch (err) {
+    console.error("Error fetching testimonials:", err);
+    res.status(500).json({ message: "Error fetching testimonials", error: err });
+  }
+});
+
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
