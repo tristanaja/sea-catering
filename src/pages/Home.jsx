@@ -1,8 +1,16 @@
+import React from "react";
+import Hero from "../components/Hero";
+import Services from "../components/Services";
+import Contact from "../components/Contact";
+import Navbar from "../components/Navbar";
+
 function Home() {
   return (
-    <div>
-      <h1>Welcome to SEA Catering</h1>
-      <p>Healthy Meals, Anytime, Anywhere.</p>
+    <div className="bg-[#FDF8F5]">
+      <Navbar />
+      <Hero />
+      <Services />
+      <Contact id="contact" />
     </div>
   );
 }
