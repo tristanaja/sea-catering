@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import TestimonialForm from '../components/TestimonialForm';
 import TestimonialSlider from '../components/TestimonialSlider';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 const Testimonials = () => {
   const [testimonials, setTestimonials] = useState([
@@ -29,11 +30,12 @@ const Testimonials = () => {
   return (
     <>
       <Navbar />
-      <div className="container mx-auto px-4 py-20">
-        <h1 className="text-4xl font-bold text-center mb-12 font-['Montserrat'] text-[#333333]">Customer Testimonials</h1>
-        <TestimonialForm onSubmit={handleNewTestimonial} />
+      <div className="container mx-auto px-4 py-16 md:py-24 bg-[#FDF8F5] font-['Lora']">
+        <h1 className="text-4xl md:text-5xl font-bold text-center mb-12 font-['Montserrat'] text-[#333333]">What Our Customers Say</h1>
         <TestimonialSlider testimonials={testimonials} />
+        <TestimonialForm onSubmit={handleNewTestimonial} />
       </div>
+      <Footer />
     </>
   );
 };

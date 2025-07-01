@@ -26,11 +26,11 @@ const Services = () => {
         <h2 className="text-4xl font-bold text-center text-[#333333] mb-12 font-['Montserrat']">Our Services</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <div key={index} className="bg-[#FEE1CD] rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
-              <img src={service.imageUrl} alt={service.title} className="w-full h-64 object-cover"/>
+            <div key={index} className="bg-[#FEE1CD] rounded-lg shadow-xl overflow-hidden transform hover:scale-105 transition-transform duration-300 group">
+              <img src={service.imageUrl} alt={service.title} className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500 ease-in-out"/>
               <div className="p-6">
-                <h3 className="text-2xl font-bold text-[#333333] mb-2 font-['Montserrat']">{service.title}</h3>
-                <p className="text-[#333333] font-['Lora']">{service.description}</p>
+                <h3 className="text-2xl font-bold text-[#333333] mb-3 font-['Montserrat'] group-hover:text-[#E85A4F] transition-colors duration-300">{service.title}</h3>
+                <p className="text-[#333333] font-['Lora'] text-lg">{service.description}</p>
               </div>
             </div>
           ))}
